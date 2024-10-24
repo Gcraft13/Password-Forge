@@ -1,7 +1,4 @@
-const passwordBox = $("#password");
-const passwordLength = $("#materials");
-
-const upperCase = [
+const characters = [
   "A",
   "B",
   "C",
@@ -27,20 +24,66 @@ const upperCase = [
   "X",
   "Y",
   "Z",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "0",
+  "!",
+  "@",
+  "#",
+  "$",
+  "%",
+  "&",
+  "*",
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
 ];
-const numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
-const symbols = ["!", "@", "#", "$", "%", "&", "*"];
 
-const allChars = upperCase + numbers + symbols;
+//
 
 function createPassword() {
-  let password = "";
-  password += upperCase[Math.floor(Math.random() * upperCase.length)];
-  password += numbers[Math.floor(Math.random() * numbers.length)];
-  password += symbols[Math.floor(Math.random() * symbols.length)];
+  const passwordBox = document.getElementById("password");
+  const passwordLength = parseInt(document.getElementById("materials").value);
+  let password = [];
 
-  while (passwordLength.value > password.length) {
-    password += allChars[Math.floor(Math.random() * allChars.length)];
+  for (i = 0; i < passwordLength; i++) {
+    let randomNumber = Math.floor(Math.random() * characters.length);
+    let letter = characters[randomNumber];
+    password.push(letter);
   }
-  passwordBox.value = password;
+
+  let passwordAsString = password.toString();
+  let newPassword = passwordAsString.replaceAll(",", "");
+
+  passwordBox.value = newPassword;
 }
