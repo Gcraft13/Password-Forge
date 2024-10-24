@@ -69,3 +69,9 @@ button {
 input img {
   width: 30px;
 }
+
+#reset {
+  background-color: blue;
+  margin-top: 10px;
+  border-radius: 5px;
+}

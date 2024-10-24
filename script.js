@@ -87,3 +87,8 @@ function createPassword() {
 
   passwordBox.value = newPassword;
 }
+
+function resetPassword() {
+  document.getElementById("materials").value = "";
+  document.getElementById("password").value = "";
+}
